@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Register Patient</title>
+<script>
+function validateForm() {
+    var isValid = true;
+    var inputs = document.querySelectorAll('.form-input');
+    inputs.forEach(function(input) {
+        if (input.value === '') {
+            input.nextElementSibling.innerHTML = 'Please field must be provided';
+            input.style.borderColor = 'red';
+            isValid = false;
+        } else {
+            input.nextElementSibling.innerHTML = '';
+            input.style.borderColor = 'initial';
+        }
+    });
+    return isValid;
+}
+<style>
+    body {
+        background-color: #98FB98; /* Light green background */
+    }
+    .container {
+        max-width: 600px;
+        margin: 0 auto;
+        background-color: #fff; /* White background for the form area */
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: adds a subtle shadow around the form */
+    }
+    label {
+        display: block;
+        margin-top: 10px;
+    }
+    input[type=text],
+    input[type=date],
+    select {
+        width: 100%;
+        padding: 8px;
+        margin-top: 5px;
+    }
+    .error-message {
+        color: red;
+        font-size: 0.8em;
+    }
+    input[type=submit],
+    input[type=reset] {
+        padding: 10px 20px;
+        margin-top: 20px;
+    }
+</style>
+</script>
+</head>
+<body>
+
+<h2>Register Patient</h2>
+
+
+<form id="patientForm" onsubmit="return validateForm()">
+
+    <label for="patientID">PatientID</label> 
+    <input type="text" id="patientID" name="patientID" class="form-input">
+    <span class="error-message"></span> </br>
+
+    <label for="firstName">First Name</label>
+    <input type="text" id="firstName" name="firstName" class="form-input">
+    <span class="error-message"></span> </br>
+
+    <label for="middleName">Middle Name</label> </br>
+    <input type="text" id="middleName" name="middleName" class="form-input">
+    <span class="error-message"></span> </br>
+
+    <label for="surname">Surname</label>
+    <input type="text" id="surname" name="surname" class="form-input">
+    <span class="error-message"></span> </br>
+
+    <label for="dateOfBirth">Date of Birth</label>
+    <input type="date" id="dateOfBirth" name="dateOfBirth" class="form-input">
+    <span class="error-message"></span> </br>
+
+    <label for="gender">Gender</label>
+    <select id="gender" name="gender" class="form-input">
+        <option value="">Please select</option> </br>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="other">Other</option>
+    </select>
+    <span class="error-message"></span> </br>
+
+    <label for="county">County</label>
+    <select id="county" name="county" class="form-input">
+        <option value="">Please select</option>
+        <!-- Placeholder for counties, should be filled with actual data -->
+        <option value="county1">County 1</option>
+        <option value="county2">County 2</option> </br>
+        <!-- Add all 47 counties here -->
+    </select>
+    <span class="error-message"></span> </br>
+
+    <input type="submit" value="Send"> </br>
+    <input type="reset" value="Clear"> </br>
+</form> </br>
+
+</body>
+</html>
